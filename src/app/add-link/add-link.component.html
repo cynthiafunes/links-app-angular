@@ -1,0 +1,52 @@
+<h2>Añadir Nuevo Enlace</h2>
+
+<p *ngIf="error" class="error">{{ error }}</p>
+
+<form (ngSubmit)="handleSubmit()">
+  <div>
+    <label for="title">Título:</label>
+    <input
+      type="text"
+      id="title"
+      [(ngModel)]="title"
+      name="title"
+      required
+    />
+  </div>
+  
+  <div>
+    <label for="url">URL:</label>
+    <input
+      type="url"
+      id="url"
+      [(ngModel)]="url"
+      name="url"
+      required
+    />
+  </div>
+  
+  <div>
+    <label for="description">Descripción:</label>
+    <textarea
+      id="description"
+      [(ngModel)]="description"
+      name="description"
+    ></textarea>
+  </div>
+  
+  <div>
+    <label for="tags">Etiquetas (separadas por comas):</label>
+    <input
+      type="text"
+      id="tags"
+      [(ngModel)]="tagsInput"
+      name="tagsInput"
+      placeholder="ej. tecnología, programación, angular"
+    />
+  </div>
+  
+  <div class="form-buttons">
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancel()">Cancelar</button>
+  </div>
+</form>

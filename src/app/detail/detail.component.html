@@ -1,0 +1,60 @@
+<p *ngIf="loading">Cargando detalles del enlace...</p>
+<p *ngIf="error" class="error">{{ error }}</p>
+<p *ngIf="!loading && !error && !link">No se encontró el enlace.</p>
+
+<div *ngIf="!loading && !error && link" class="link-detail">
+  <h2>{{ link.title }}</h2>
+  <p>{{ link.description || '' }}</p>
+  <p>
+    <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
+  </p>
+  
+  <div>
+    <span *ngFor="let tag of link.tags" class="tag">{{ tag.name }}</span>
+  </div>
+  
+  <div class="vote-section">
+    <h3>Votar por este enlace</h3>
+    <p>Votos actuales: <strong>{{ totalVotes }}</strong></p>
+    <button (click)="handleVote()">Me gusta</button>
+  </div>
+  
+  <div class="comments-section">
+    <h3>Comentarios</h3>
+    
+    <p *ngIf="!link.comments || link.comments.length === 0">Aún no hay comentarios.</p>
+    
+    <div *ngIf="link.comments && link.comments.length > 0">
+      <div *ngFor="let comment of link.comments" class="comment">
+        <p>{{ comment.text }}</p>
+        <small>Por: {{ comment.userName }}</small>
+      </div>
+    </div>
+    
+    <h4>Añadir un Comentario</h4>
+    <form (ngSubmit)="handleSubmitComment()">
+      <div>
+        <label for="userName">Tu Nombre:</label>
+        <input
+          type="text"
+          id="userName"
+          [(ngModel)]="userName"
+          name="userName"
+          required
+        />
+      </div>
+      <div>
+        <label for="commentText">Comentario:</label>
+        <textarea
+          id="commentText"
+          [(ngModel)]="commentText"
+          name="commentText"
+          required
+        ></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <button (click)="goBack()">Volver a la lista</button>
+</div>

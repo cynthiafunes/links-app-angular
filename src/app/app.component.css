@@ -1,0 +1,32 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-button {
+  background-color: #4285f4;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.nav-button.active {
+  background-color: #0056b3;
+}
+
+.container {
+  margin-top: 20px;
+}

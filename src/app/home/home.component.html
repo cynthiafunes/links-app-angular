@@ -1,0 +1,30 @@
+<h2>Todos los Enlaces</h2>
+
+<div class="tag-filter">
+  <label>
+    Filtrar por etiqueta:
+    <select [(ngModel)]="selectedTag" (change)="handleTagChange()">
+      <option value="">Todas las etiquetas</option>
+      <option *ngFor="let tag of tags" [value]="tag.name">{{ tag.name }}</option>
+    </select>
+  </label>
+</div>
+
+<p *ngIf="loading">Cargando enlaces...</p>
+<p *ngIf="error" class="error">{{ error }}</p>
+<p *ngIf="!loading && !error && links.length === 0">No se encontraron enlaces.</p>
+
+<div *ngIf="!loading && !error && links.length > 0" class="links-list">
+  <div *ngFor="let link of links" class="link-card">
+    <h3>
+      <a [routerLink]="['/link', link.id]">{{ link.title }}</a>
+    </h3>
+    <p>{{ link.description || '' }}</p>
+    <p>
+      <a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
+    </p>
+    <div>
+      <span *ngFor="let tag of link.tags" class="tag">{{ tag.name }}</span>
+    </div>
+  </div>
+</div>

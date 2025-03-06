@@ -1,0 +1,13 @@
+<div class="app">
+  <header class="header">
+    <h1>Links App</h1>
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-button">Inicio</a>
+      <a routerLink="/add" routerLinkActive="active" class="nav-button">Añadir Link</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <router-outlet></router-outlet>
+  </main>
+</div>

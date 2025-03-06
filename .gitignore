@@ -1,0 +1,27 @@
+# Dependencies
+/node_modules
+
+# Compiled output
+/dist
+/.angular
+/.tmp
+
+# IDE - VSCode
+/.vscode
+
+# Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+/src/environments/*.local.ts
